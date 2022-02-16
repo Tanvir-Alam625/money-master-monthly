@@ -31,9 +31,10 @@
                     <div class="income flex items-center">
                         <p class=" pr-3">Income:</p>
                         <input class="py-3 px-5 bg-[#DCDCDC] text-1xl
-                        " type="text" placeholder="monthly income" id="monthly-income">
+                        " type="text" placeholder="monthly income"  id="monthly-income">
                     </div>
                     <h4 class="text-1xl font-medium py-5">Expenses</h4>
+                    <!-- expenses  -->
                     <div class="expenses-amount flex  flex-col items-end">
                         <div class="income my-[10px] flex items-center">
                             <p class=" pr-3">Fod:</p>
@@ -51,17 +52,21 @@
                             " type="text" placeholder="your Clothes amount">
                         </div>
                     </div>
+                    <!-- calculate button  -->
                     <button class="py-3 px-10 rounded font-semi my-6 bold text-1xl text-white tracking-widest bg-[#31A5AC]" id="calculate-button">Calculate</button>
+                    <!-- total expenses  -->
                     <div class="total-expenses">
                         <h3 class="text-1xl font-medium py-5">Total Expenses: <span id="total-expenses">0</span></h3>
                         <h3 class="text-1xl font-medium py-5">Balance: <span id="balance">0</span></h3>
                     </div>
+                    <!-- save tags  -->
                     <div class="save flex justify-center flex-wrap md:block items-center ">
                         <span class="mx-5">save:</span>
                         <input type="text" class="mx-5  py-3 px-5 w-[100px] bg-[#DCDCDC] text-1xl" placeholder="20" name="save" id="save-value">
                         <span class="mx-2">%</span>
                         <button class="py-3  mx-5 px-10 rounded font-semi my-6 bold text-1xl text-white tracking-widest bg-[#31A5AC]">Save</button>
                     </div>
+                    <!-- saving balance  -->
                     <div class="total-expenses">
                         <h3 class="text-1xl font-medium py-5">Saving Amount: <span id="saving-amount">0</span></h3>
                         <h3 class="text-1xl font-medium py-5">Remaining Balance: <span id="remaining-balance">0</span></h3>
@@ -70,5 +75,7 @@
             </div>
         </div>
     </main>
+    <!-- script tags  -->
+    <script src="./js/main.js"></script>
 </body>
 </html>
