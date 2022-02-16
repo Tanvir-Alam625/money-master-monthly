@@ -1,0 +1,14 @@
+/* google font link  */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap");
+/* css variables  */
+:root {
+  --montserrat-font: "Montserrat", sans-serif;
+  --roboto-font: "Roboto", sans-serif;
+  -font-normal: 400;
+  -font-semibold: 500;
+  -font-bold: 700;
+  --primary-color: #31a5ac;
+}
+header {
+  font-family: var(--montserrat-font);
+}
