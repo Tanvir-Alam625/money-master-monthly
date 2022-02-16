@@ -7,10 +7,13 @@ calculateButton.addEventListener('click',function(){
     const incomeAmount = getInputId('monthly-income');
     console.log(incomeAmount);
     if( isNaN(incomeAmount)){
-        incomeInput.style.border = '2px solid red'
+        incomeInput.style.border = '2px solid red';
+    }
+    else if (incomeInput.value == ''){
+        incomeInput.style.border = '2px solid red';
     }
     else if(incomeAmount  < 0){       
-         incomeInput.style.border = '2px solid red'
+         incomeInput.style.border = '2px solid red';
     }else{
         const totalExpenses = getExpenses();
         console.log(totalExpenses);
@@ -18,8 +21,9 @@ calculateButton.addEventListener('click',function(){
             const balance = incomeAmount - totalExpenses;
             document.getElementById('total-expenses').innerText = totalExpenses;
             document.getElementById('balance').innerText = balance;
-            incomeInput.style.border = '0px'
-            incomeInput.value= ''
+            incomeInput.style.border = '0px';
+            document.getElementById('income-error-message').style.display = 'none';
+            incomeInput.value= '';
         }else{
             document.getElementById('income-error-message').style.display = 'block';
         }
@@ -27,9 +31,9 @@ calculateButton.addEventListener('click',function(){
 });
 //  expenses calculation function 
 function getExpensesId(expensesId){
-    const expensesInput = document.getElementById(expensesId)
+    const expensesInput = document.getElementById(expensesId);
     const expensesValue = expensesInput.value;
-    const expenses = parseFloat(expensesValue)
+    const expenses = parseFloat(expensesValue);
     if (isNaN(expenses)){
         expensesInput.style.border = '2px solid red';
     }else if (expenses<0){
@@ -37,7 +41,7 @@ function getExpensesId(expensesId){
     }
     else{
         expensesInput.style.border = '0px';
-        expensesInput.value =''
+        expensesInput.value ='';
         return expenses;
     }
 }
@@ -51,7 +55,7 @@ function getExpenses(){
 }
 // save event handler 
 saveButton.addEventListener('click',function (){
-    getSave()
+    getSave();
 })
 // get input id function
 function getInputId(id){
