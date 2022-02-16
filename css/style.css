@@ -12,3 +12,10 @@
 header {
   font-family: var(--montserrat-font);
 }
+main {
+  font-family: var(--roboto-font);
+}
+.money-image {
+  background-image: url("../image/banner.jpg");
+  background-size: cover;
+}
