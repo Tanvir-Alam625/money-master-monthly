@@ -1,10 +1,10 @@
 
 const calculateButton = document.getElementById('calculate-button');
+const saveButton = document.getElementById('save-btn');
 // expenses calculation event handler 
 calculateButton.addEventListener('click',function(){
     const incomeInput = document.getElementById('monthly-income');
-    const incomeValue = incomeInput.value;
-    const incomeAmount = parseFloat(incomeValue)
+    const incomeAmount = getInputId('monthly-income');
     console.log(incomeAmount);
     if( isNaN(incomeAmount)){
         incomeInput.style.border = '2px solid red'
@@ -21,7 +21,7 @@ calculateButton.addEventListener('click',function(){
             incomeInput.style.border = '0px'
             incomeInput.value= ''
         }else{
-            alert('your balance is not enough');
+            document.getElementById('income-error-message').style.display = 'block';
         }
     }
 });
@@ -49,37 +49,46 @@ function getExpenses(){
    const totalExpenses = fod + rent + clothes;
    return totalExpenses;
 }
-document.getElementById('save-btn').addEventListener('click',function (){
+// save event handler 
+saveButton.addEventListener('click',function (){
     getSave()
 })
+// get input id function
 function getInputId(id){
     const input = document.getElementById(id).value;
     const inputValue = parseFloat(input);
     return inputValue;
 }
+// get innerText id function 
+function getInnerId(id){
+    const text = document.getElementById(id).innerText;
+    const textValue = parseFloat(text);
+    return textValue;
+}
 function getSave(){
     // save input 
     const saveInput =document.getElementById('save-value');
     const saveValue = getInputId('save-value');
-    // monthly income 
-    const expenses = document.getElementById('total-expenses').innerText;
-    const expensesCovert = parseFloat(expenses)
+    // total expenses
+    const expenses = getInnerId('total-expenses')
     // balance 
-    const balanceId =document.getElementById('balance').innerText;
-    const balanceCovert = parseFloat(balanceId);
-    const balanceAddition = expensesCovert + balanceCovert;
+    const balance =getInnerId('balance');
+    const balanceAddition = expenses + balance;
     // calculate 
     const save = (balanceAddition * saveValue)/100;
+    // error message 
     if(isNaN(saveValue)){
         saveInput.style.border = '2px solid red';
     }
-    else if(save < balanceCovert){
+    // saving condition 
+    else if(save < balance){
         document.getElementById('saving-amount').innerText = save;
-        const remainingBalance = balanceCovert - save;
-        document.getElementById('remaining-balance').innerText = remainingBalance;
+        const remainingBalance = balance - save;
+        document.getElementById('remaining-balance').innerText= remainingBalance;
         saveInput.value = "";
         saveInput.style.border = '0px';
     }else{
+        // error message 
         saveInput.style.border = '2px solid red'
     }
     
